@@ -1,4 +1,4 @@
-baseURL = "http://example.org/"
+baseURL = "https://mufanc.xyz/"
 languageCode = "zh-cn"
 title = "Mufanc's Notes"
 theme = [ "overlay", "PaperMod" ]
