@@ -1,0 +1,18 @@
+{
+    "name": "my-notes",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "windi:dev": "windicss -mto themes/overlay/assets/css/windi.css --config windi.config.js --dev",
+        "hugo:dev": "hugo server -DF",
+        "dev": "run-p windi:dev hugo:dev"
+    },
+    "keywords": [],
+    "author": "Mufanc",
+    "license": "MIT",
+    "devDependencies": {
+        "npm-run-all": "^4.1.5",
+        "windicss": "^3.5.6"
+    }
+}

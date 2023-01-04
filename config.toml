@@ -1,5 +1,5 @@
 baseURL = "http://example.org/"
-languageCode = "zh-CN"
+languageCode = "zh-cn"
 title = "Mufanc's Notes"
 theme = [ "overlay", "PaperMod" ]
 
@@ -15,29 +15,13 @@ style = "monokai"  # https://xyproto.github.io/splash/docs/
 
 
 # 顶部菜单
-[[menu.main]]
-identifier = "search"
-name = "搜索"
-url = "search"
-weight = 10
-
-[[menu.main]]
-identifier = "posts"
-name = "文章"
-url = "posts"
-weight = 20
-
-[[menu.main]]
-identifier = "tags"
-name = "标签"
-url = "tags"
-weight = 30
-
-[[menu.main]]
-identifier = "categories"
-name = "分类"
-url = "categories"
-weight = 40
+[menu]
+main = [
+    { identifier = "search", name = "搜索", url = "search", weight = 10 },
+    { identifier = "posts", name = "文章", url = "posts", weight = 20 },
+    { identifier = "tags", name = "标签", url = "tags", weight = 30 },
+    { identifier = "categories", name = "分类", url = "categories", weight = 40 },
+]
 
 
 # 主页
