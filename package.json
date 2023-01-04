@@ -4,9 +4,12 @@
     "description": "",
     "main": "index.js",
     "scripts": {
+        "windi": "windicss -mto themes/overlay/assets/css/windi.css --config windi.config.js",
         "windi:dev": "windicss -mto themes/overlay/assets/css/windi.css --config windi.config.js --dev",
+        "hugo": "hugo --gc --minify",
         "hugo:dev": "hugo server -DF",
-        "dev": "run-p windi:dev hugo:dev"
+        "dev": "run-p windi:dev hugo:dev",
+        "build": "run-s windi hugo"
     },
     "keywords": [],
     "author": "Mufanc",
