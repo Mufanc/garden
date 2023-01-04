@@ -33,6 +33,9 @@ module.exports = {
                         },
                         'pre': {
                             'background-color': 'inherit !important'
+                        },
+                        '.copy-code': {
+                            'color': 'rgba(255,255,255,.8)'
                         }
                     },
                 },
