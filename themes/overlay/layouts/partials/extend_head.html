@@ -2,6 +2,15 @@
 {{- $windi := (resources.Get "css/windi.css") }}
 <link rel="stylesheet" href="{{ $windi.RelPermalink }}" />
 
+<!-- Font Awesome Icons -->
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+/>
+
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,6 +24,7 @@
     .post-single {
         font-family: 'Noto Sans Mono', 'Noto Color Emoji', 'Noto Serif CJK SC', system-ui;
     }
+
     .post-content {
         text-align: justify;
     }
@@ -27,8 +37,67 @@
     .post-content img {
         margin: 0 auto;
     }
+
     .prose {
         font-size: inherit;
         max-width: initial;
+    }
+
+    .highlight:has(.expand-btn) {
+        padding-bottom: 2em;
+    }
+    .highlight pre {
+        /* 代码高度限制 20 行 */
+        max-height: calc(1.7142857em * 20 + 1em);
+        overflow: hidden;
+        transition: all .2s ease-in-out;
+    }
+    .highlight .expand-done + pre {
+        /* 代码高度限制 20 行 */
+        max-height: var(--code-height)
+    }
+    .highlight .expand-btn {
+        position: absolute;
+        z-index: 1;
+        bottom: 0;
+        width: 100%;
+        height: 2em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: scaleY(1);
+        transition: all .2s ease-in-out;
+    }
+    .highlight .expand-btn.expand-done {
+        transform: scaleY(-1);
+    }
+    .highlight .expand-btn > i {
+        color: white;
+        text-align: center;
+        width: 4em;
+        position: relative;
+        animation: 1s ease-in-out floating infinite;
+    }
+    .highlight .expand-btn > i::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: -50%;
+        width: 100%;
+        height: 2em;
+    }
+
+    @keyframes floating {
+        0% {
+            transform: translateY(-10%);
+        }
+
+        50% {
+            transform: translateY(10%);
+        }
+
+        100% {
+            transform: translateY(-10%);
+        }
     }
 </style>
