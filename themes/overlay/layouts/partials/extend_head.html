@@ -49,8 +49,16 @@
     .highlight pre {
         /* 代码高度限制 */
         max-height: calc(1.7142857em * 15 + 1em);
-        overflow: hidden;
+        overflow-y: hidden;
+        overflow-x: auto;
+        outline: none;
         transition: all .2s ease-in-out;
+    }
+    .highlight .expand-btn:not(.expand-done) + pre::-webkit-scrollbar {
+        height: 0.4em;
+    }
+    .highlight pre > code {
+        width: max-content;
     }
     .highlight .expand-done + pre {
         max-height: var(--code-height)
