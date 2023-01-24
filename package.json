@@ -7,7 +7,7 @@
         "windi": "windicss -mto themes/overlay/assets/css/windi.css --config windi.config.js",
         "windi:dev": "windicss -mto themes/overlay/assets/css/windi.css --config windi.config.js --dev",
         "hugo": "hugo --gc --minify",
-        "hugo:dev": "hugo server -DF",
+        "hugo:dev": "hugo server -DF --bind=0.0.0.0",
         "dev": "run-p windi:dev hugo:dev",
         "build": "run-s windi hugo"
     },
