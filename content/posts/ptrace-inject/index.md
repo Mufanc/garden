@@ -240,6 +240,12 @@ ptrace_detach(pid);
 
 ## 源代码
 
-完整代码已上架 GitHub，可以在 Termux 环境中通过 `make` 运行，以及我并没有做任何诸如「绕过 dlopen 限制」的操作，所以在其他地方跑或许会出问题 ~~（懒得测试了）~~
+完整代码已上架 GitHub，可以在 Termux 环境中通过 `make` 命令运行。~~以及我并没有做任何诸如「绕过 dlopen 限制」的操作，所以在其他地方跑或许会出问题。~~ 参考 [这篇文章](https://windysha.github.io/2021/05/26/%E5%8F%A6%E4%B8%80%E7%A7%8D%E7%BB%95%E8%BF%87Android%E7%B3%BB%E7%BB%9F%E5%BA%93%E8%AE%BF%E9%97%AE%E9%99%90%E5%88%B6%E7%9A%84%E6%96%B9%E6%B3%95/) 所述的实现方式，调用 `dlopen` 时将 `LR` 寄存器的值设置为 libc 的基址，就可以实现绕过系统对 dlopen 函数的限制
+
+现已支持对任意 ARM64 APP 进程注入代码，使用下面的命令运行：
+
+```bash
+make app PID=<PID>
+```
 
 {{< github repo="Mufanc/android-ptrace-inject">}}
