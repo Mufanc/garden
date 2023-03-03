@@ -381,6 +381,8 @@ Linux 平台的网易云音乐客户端？那必须是 [netease-cloud-music-gtk]
 
 * 图标包：[Papirus](https://www.gnome-look.org/p/1166289/)
 
+* 登录屏幕：[Sugar Candy](https://store.kde.org/p/1312658)
+
 ### Wallpaper Engine
 
 * [项目地址](https://github.com/catsout/wallpaper-engine-kde-plugin)
