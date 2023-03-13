@@ -7,7 +7,7 @@ tags = [ 'bwrap', 'QQ' ]
 categories = []
 +++
 
-最近腾讯推出了基于 Electron 的 [Linux QQ](https://im.qq.com/linuxqq/index.shtml) 3.0 版本，总算是可以正常收发消息了，但鉴于之前 QQ 在 Windows 平台上的 [种种流氓行为](https://www.zhihu.com/question/264625793)，自然是不可能放心地让它在我的机器上裸奔的
+最近腾讯推出了基于 Electron 的 [Linux QQ](https://im.qq.com/linuxqq/index.shtml) 3.0 版本，总算是可以正常收发消息了，但似乎 QQ 在 Windows 平台上曾有过一些 [流氓行为](https://www.zhihu.com/question/264625793)，还是不太放心让它直接在我的机器上裸奔
 
 但好在这里是 Linux，我们可以玩许多魔法，不是么。
 
