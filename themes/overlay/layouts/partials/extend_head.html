@@ -19,6 +19,17 @@
     rel="stylesheet"
 />
 
+<!-- Mermaid -->
+{{ if .Params.mermaid }}
+<script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+    window.addEventListener('load', () => {
+        mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
+    })
+</script>
+{{ end }}
+
 <!-- Custom Styles -->
 <style>
     .post-single {
@@ -65,6 +76,16 @@
     }
     .highlight pre > code {
         width: max-content;
+    }
+    code.language-mermaid {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        padding: 1em 0 !important;
+    }
+    code.language-mermaid + .copy-code {
+        /* 隐藏 mermaid 的「复制代码」按钮 */
+        display: none;
     }
     .highlight .expand-done + pre {
         max-height: var(--code-height)
