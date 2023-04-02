@@ -86,3 +86,31 @@ sub   rsa3072 2023-04-01 [E]
 ```bash
 export GPG_TTY=$(tty)
 ```
+
+但是上面的方案有个问题，如果在 IDE 中提交代码，IDE 集成的 Git 没有一个合适的 tty 来供我们输入密码，导致 commit 失败。所以这里使用第二套方案，配置 `pinentry` 以从弹出对话框中输入密码：
+
+* 安装 `pinentry`
+
+```shell
+> paru -S pinentry
+```
+
+* 配置 `gpg-agent`
+
+在 `~/.gnupg/gpg-agent.conf` 中添加以下内容，我这里是 KDE 桌面环境，所以用的 `pinentry-qt`，Gnome 用户似乎应该换成 `pinentry-gtk-2`（？
+
+```text
+# 密码缓存有效期（秒）
+default-cache-ttl 3600
+
+# 用于输入密码的窗口程序
+pinentry-program /usr/bin/pinentry-qt 
+```
+
+然后使用命令 `gpgconf --kill gpg-agent` 杀死 `gpg-agent`，使其下次启动时重新加载配置，可以通过下面的命令来测试：
+
+```shell
+> echo | gpg -ase -r $GPG_KEY_ID
+```
+
+如果能够正常弹出对话框，则说明一切正常，可以愉快地写代码啦~
