@@ -78,3 +78,11 @@ sub   rsa3072 2023-04-01 [E]
 此时再向仓库提交代码，右侧就会出现一个 `Verified` 小绿标啦：
 
 ![](./signed-commit.png)
+
+## 报错？
+
+提交代码时，有可能会遇到 `gpg: signing failed: Inappropriate ioctl for device` 错误，只需要将下面这行添加到 `~/.zshrc` 即可解决：
+
+```bash
+export GPG_TTY=$(tty)
+```
