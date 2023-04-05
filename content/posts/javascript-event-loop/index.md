@@ -55,11 +55,73 @@ flowchart TD
 
 * 定时器系列，如 `setTimeout` 和 `setInterval`
 
-##  ## 常见的微任务有：
+#### 常见的微任务有：
 
 * Promise 的回调：`.then()`、`.catch()`、`.finally()`
 
 * MutationObserver
+
+## async &amp; await
+
+* `async`
+
+异步函数返回一个 Promise 对象，相当于普通函数返回一个 resolve 状态的 Promise，注意异步函数中 return 以外的部分依然是同步执行的：
+
+```javascript
+async function func() {
+    // do something
+    return 23333
+}
+
+// 等价于
+function func() {
+    // do something
+    return Promise.resolve(23333)
+}
+```
+
+* `await`
+
+await 的作用是同步地等待一个异步对象的结果，如果不是 Promise 对象，就直接返回它的值，这里给出一个稍复杂的例子：
+
+```javascript
+async function logA() {
+    console.log('1')
+    await logB()
+    console.log('4')
+}
+
+async function logB() {
+    console.log('2')
+}
+
+logA().then(() => console.log(5))
+
+console.log('3')
+```
+
+上面的代码会按照 `1`、`2`、`3`、`4`、`5` 的顺序输出，等价于：
+
+```javascript
+function logA() {
+    console.log('1')
+    return new Promise((resolve) => {
+        logB().then(() => {
+            console.log('4')
+            resolve()
+        })
+    })
+}
+
+function logB() {
+    console.log('2')
+    return Promise.resolve()
+}
+
+logA().then(() => console.log('5'))
+
+console.log('3')
+```
 
 ## 总结
 
