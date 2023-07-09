@@ -518,7 +518,7 @@ out_rcu_unlock:
 
 Android Developers 上的 [这篇文档](https://source.android.com/docs/core/architecture/kernel/bpf) 介绍了如何在 Android 使用 eBPF 程序。根据下方给出的 [示例](https://source.android.com/docs/core/architecture/kernel/bpf#androidebpf)，我们能够轻松找到控制 inet socket 创建的代码：
 
-* [netc.c](http://aospxref.com/android-12.0.0_r3/xref/system/netd/bpf_progs/netd.c#348)
+* [netd.c](http://aospxref.com/android-12.0.0_r3/xref/system/netd/bpf_progs/netd.c#348)
 
 ```c
 DEFINE_BPF_MAP(uid_permission_map, HASH, uint32_t, uint8_t, UID_OWNER_MAP_SIZE)
@@ -827,7 +827,7 @@ The document has moved
 </BODY></HTML>
 ```
 
-所以似乎 Android 给有网络权限的应用进程赋予了 `inet` 用户组，却并没有用它来鉴权？[^inet]
+所以似乎高版本的 Android 给有网络权限的应用进程赋予了 `inet` 用户组，却并没有用它来鉴权？[^inet]
 
 [^inet]: 文中测试所用的环境是 Android Studio 的 AVD，而在我 4.19 版本内核的 Mi 10 上测试，创建 socket 时会 Permission Denied，不知道小米是否做了什么特殊改良
 
